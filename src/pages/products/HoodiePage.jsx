@@ -6,7 +6,7 @@ import ModernFooter from '../../components/modern-footer/ModernFooter';
 import './ProductPages.css';
 
 const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
-    const [selectedColor, setSelectedColor] = useState('black');
+    const [selectedColor, setSelectedColor] = useState('dark');
     const containerRef = useRef(null);
     const { scrollY } = useScroll();
     
@@ -16,7 +16,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
-        setIsDarkMode(color === 'white');
+        setIsDarkMode(color === 'light');
     };
 
     const colors = {
@@ -36,8 +36,10 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
         if (selectedColor === 'light') {
             return '/images/hoodie-light.png';
         }
-        return isDarkMode ? '/images/hoodie-dark.png' : '/images/hoodie-dark.png';
+        return isDarkMode ? '/images/hoodie-dark-mode.png' : '/images/hoodie-dark.png';
     };
+
+    const textColor = isDarkMode ? '#fff' : '#000'; // Colore del testo in base alla modalità
 
     const GallerySection = () => {
         const galleryRef = useRef(null);
@@ -139,10 +141,10 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 style={{ color: colors[selectedColor].textColor }}>
+                        <h1 style={{ color: textColor }}>
                             Essential Hoodie
                         </h1>
-                        <p className="tagline" style={{ color: colors[selectedColor].textColor }}>
+                        <p className="tagline" style={{ color: textColor }}>
                             Comfort e stile in un unico capo
                         </p>
                     </motion.div>
@@ -162,14 +164,17 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         animate={{ y: [0, 10, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5 }}
                     >
-                        <FaChevronDown style={{ color: colors[selectedColor].textColor }} />
+                        <FaChevronDown style={{ color: textColor }} />
                     </motion.div>
                 </motion.section>
 
                 {/* Product Options */}
-                <section className={`product-options ${selectedColor === 'white' ? 'white-product' : ''}`}>
+                <section 
+                    className={`product-options ${selectedColor === 'white' ? 'white-product' : ''}`} 
+                    style={{ background: isDarkMode ? '#444444' : '#c3c3c3' }}
+                >
                     <div className="color-selector">
-                        <h3>Seleziona il colore</h3>
+                        <h3 style={{ color: textColor }}>Seleziona il colore</h3>
                         <div className="color-options">
                             <motion.button
                                 key="dark"
@@ -177,7 +182,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                                 onClick={() => handleColorChange('dark')}
                                 whileHover={{ scale: 1.1 }}
                                 style={{ 
-                                    background: '#1a1a1a', // Grigio scuro
+                                    background: '#1a1a1a', // bianco
                                     color: '#fff' // Testo bianco
                                 }}
                             >
@@ -190,7 +195,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                                 whileHover={{ scale: 1.1 }}
                                 style={{ 
                                     background: '#f5f5f7', // Grigio chiaro
-                                    color: '#000' // Testo nero
+                                    color: '#fff' // Testo bianco
                                 }}
                             >
                                 <span className="color-name">Grigio Chiaro</span>
@@ -204,8 +209,8 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <div className="price">€39.99</div>
-                        <button className="buy-now">Acquista ora</button>
+                        <div className="price" style={{ color: textColor }}>€39.99</div>
+                        <button className="buy-now" style={{ color: textColor }}>Acquista ora</button>
                     </motion.div>
                 </section>
 
@@ -221,8 +226,8 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                             <img src="/images/hoodie-detail1.png" alt="Dettaglio tessuto" />
                         </motion.div>
                         <div className="feature-content">
-                            <h2>Tessuto Premium</h2>
-                            <p>100% cotone biologico certificato. Morbidezza eccezionale e resistenza superiore.</p>
+                            <h2 style={{ color: textColor }}>Tessuto Premium</h2>
+                            <p style={{ color: textColor }}>100% cotone biologico certificato. Morbidezza eccezionale e resistenza superiore.</p>
                         </div>
                     </div>
 
@@ -236,22 +241,13 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                             <img src="/images/hoodie-detail2.png" alt="Dettaglio cuciture" />
                         </motion.div>
                         <div className="feature-content">
-                            <h2>Cuciture Perfette</h2>
-                            <p>Ogni dettaglio è curato con precisione per garantire comfort e durata nel tempo.</p>
+                            <h2 style={{ color: textColor }}>Cuciture Perfette</h2>
+                            <p style={{ color: textColor }}>Ogni dettaglio è curato con precisione per garantire comfort e durata nel tempo.</p>
                         </div>
                     </div>
                 </section>
 
-                <div className="purchase-button-container">
-                    <motion.button 
-                        className="buy-now gallery-buy-button"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        Acquista ora - €39.99
-                    </motion.button>
-                </div>
-
+                
                 <GallerySection />
 
                 <div className="purchase-button-container">
@@ -259,6 +255,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         className="buy-now gallery-buy-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
+                        style={{ color: textColor }}
                     >
                         Acquista ora - €39.99
                     </motion.button>
