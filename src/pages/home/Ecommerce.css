@@ -19,6 +19,8 @@
     justify-content: center;
     position: relative;
     padding: 2rem;
+    background: #ffffff;
+    transition: background 0.3s ease;
 }
 
 /* Modifica il layout delle sezioni per utilizzare tutto lo spazio */
@@ -60,12 +62,12 @@
     font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #1a1a1a;
+    color: #000000;
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #333333;
+    color: #000000;
     margin-bottom: 30px;
 }
 
@@ -73,7 +75,7 @@
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 40px;
-    color: #1a1a1a;
+    color: #000000;
 }
 
 /* Bottoni */
@@ -101,8 +103,8 @@
 
 .learn-more, .discover-more {
     background: transparent;
-    border: 1px solid #1a1a1a;
-    color: #1a1a1a;
+    border: 1px solid #000000;
+    color: #000000;
 }
 
 /* Immagini */
@@ -130,7 +132,7 @@
 
 /* Sezione Hoodie */
 .hoodie-section {
-    background: #f5f5f7;
+    background: #ffffff;
 }
 
 .hoodie-section .hero-content {
@@ -148,7 +150,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #f5f5f7;
+    background: #ffffff;
 }
 
 .cap-layout {
@@ -191,22 +193,22 @@
 }
 
 .dark-mode .hero-product {
-    background: #121212;
+    background: rgba(18, 18, 18, 0.95);
 }
 
 .dark-mode .hero-content h1,
 .dark-mode .price {
-    color: white;
+    color: #ffffff;
 }
 
 .dark-mode .subtitle {
-    color: #999;
+    color: #ffffff;
 }
 
 .dark-mode .learn-more,
 .dark-mode .discover-more {
-    border-color: #666;
-    color: white;
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
 .dark-mode .blob path {
@@ -243,4 +245,270 @@
 /* Aggiungi la transizione per rendere il cambio fluido */
 .logo-image {
     transition: filter 0.3s ease;
+}
+
+/* Info Section */
+.info-section {
+    background: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.info-layout {
+    padding: 4rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 2rem;
+    padding-bottom: 4rem;
+}
+
+.info-columns {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.info-column {
+    text-align: center;
+    max-width: 400px;
+}
+
+.info-column h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.info-column p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Rimuovi il padding dal footer all'interno della sezione info */
+.info-section .footer-ecommerce {
+    margin-top: auto;
+    width: 100%;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Footer Styles */
+.site-footer {
+    padding: 3rem 0;
+    background: #1a1a1a;
+    color: white;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    margin: 0.5rem 0;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-section p:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    margin-top: 2rem;
+}
+
+/* Dark Mode per la sezione info */
+.dark-mode .info-section {
+    background: #121212;
+}
+
+.dark-mode .info-column h2 {
+    color: white;
+}
+
+.dark-mode .info-column p {
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+}
+
+.bio-cotton-box {
+    max-width: 650px;
+    background: rgba(245, 245, 245, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10000;
+    margin-top: 4rem;
+}
+
+.dark-mode .bio-cotton-box {
+    background: rgba(28, 28, 30, 0.95);
+}
+
+.philosophy-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #424242;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transform: rotate(0deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bio-cotton-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #424242;
+    letter-spacing: 1px;
+}
+
+.dark-mode .bio-cotton-title {
+    color: #e0e0e0;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.philosophy-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .philosophy-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.philosophy-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.philosophy-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #424242;
+}
+
+.dark-mode .philosophy-item h3 {
+    color: #e0e0e0;
+}
+
+.philosophy-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.dark-mode .philosophy-item p {
+    color: #999;
+}
+
+.philosophy-quote {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .philosophy-quote {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.philosophy-quote p {
+    font-style: italic;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.dark-mode .philosophy-quote p {
+    color: #a0a0a0;
+}
+
+@media (max-width: 768px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .bio-cotton-box {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.discover-more {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 } 

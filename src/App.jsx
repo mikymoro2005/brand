@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import HeaderEcommerce from './components/header-ecommerce/HeaderEcommerce';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import Ecommerce from './pages/home/Ecommerce';
+import TShirtPage from './pages/products/TShirtPage';
+import HoodiePage from './pages/products/HoodiePage';
+import CapPage from './pages/products/CapPage';
 import './App.css';
 
 function App() {
-    const [isDarkMode, setIsDarkMode] = useState(() => Math.random() < 0.5);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-    return (
-        <Router>
-            <div className={`app ${isDarkMode ? 'dark-mode' : ''}`}>
-                <HeaderEcommerce isDarkMode={isDarkMode} />
-                <main>
-                    <Ecommerce isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-                </main>
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Ecommerce isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+        <Route path="/products/tshirt" element={<TShirtPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+        <Route path="/products/hoodie" element={<HoodiePage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+        <Route path="/products/cap" element={<CapPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
