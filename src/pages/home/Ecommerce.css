@@ -511,4 +511,46 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
+}
+
+.newsletter-box {
+    max-width: 600px;
+    margin: 2rem auto; /* Centra il box */
+    padding: 2rem;
+    background: rgba(0, 123, 255, 0.1); /* Colore di sfondo leggero */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.newsletter-box h2 {
+    margin-bottom: 1rem;
+    color: #007bff; /* Colore del titolo */
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1; /* Occupa tutto lo spazio disponibile */
+}
+
+.newsletter-form button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Colore di sfondo blu */
+    color: white; /* Testo bianco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter-form button:hover {
+    background-color: #0056b3; /* Colore di sfondo blu scuro al passaggio del mouse */
 } 

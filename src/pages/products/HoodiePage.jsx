@@ -119,6 +119,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         className="buy-now gallery-buy-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
+                        style={{ color: '#fff' }}
                     >
                         Acquista ora - €39.99
                     </motion.button>
@@ -208,6 +209,8 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
+                        style={{ color: '#fff' }} // Imposta il colore del testo a bianco
+
                     >
                         <div className="price" style={{ color: textColor }}>€39.99</div>
                         <button className="buy-now" style={{ color: textColor }}>Acquista ora</button>
@@ -255,7 +258,7 @@ const HoodiePage = ({ isDarkMode, setIsDarkMode }) => {
                         className="buy-now gallery-buy-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
-                        style={{ color: textColor }}
+                        style={{ color: '#fff' }}
                     >
                         Acquista ora - €39.99
                     </motion.button>

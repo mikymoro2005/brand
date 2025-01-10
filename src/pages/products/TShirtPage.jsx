@@ -117,6 +117,7 @@ const TShirtPage = ({ isDarkMode, setIsDarkMode }) => {
                         className="buy-now gallery-buy-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
+                        style={{ color: '#fff' }}
                     >
                         Acquista ora - €29.99
                     </motion.button>
@@ -292,6 +293,7 @@ const TShirtPage = ({ isDarkMode, setIsDarkMode }) => {
                         className="buy-now gallery-buy-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
+                        style={{ color: '#fff' }}
                     >
                         Acquista ora - €29.99
                     </motion.button>

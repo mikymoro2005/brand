@@ -10,6 +10,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
     const [currentSection, setCurrentSection] = useState(0);
     const sections = useRef([]);
     const isScrolling = useRef(false);
+    const [email, setEmail] = useState('');
 
     const slideToSection = (index) => {
         if (isScrolling.current) return;
@@ -18,7 +19,6 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
         setCurrentSection(index);
         setIsDarkMode(prev => !prev);
 
-        // Animazione fluida con framer-motion
         const targetSection = sections.current[index];
         if (targetSection) {
             window.scrollTo({
@@ -32,6 +32,12 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
         }, 1000);
     };
 
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+        console.log(`Iscritto alla newsletter con l'email: ${email}`);
+        setEmail('');
+    };
+
     useEffect(() => {
         const handleWheel = (e) => {
             e.preventDefault();
@@ -39,10 +45,8 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
             const delta = e.deltaY;
 
             if (delta > 0 && currentSection < 3) {
-                // Scroll verso il basso
                 slideToSection(currentSection + 1);
             } else if (delta < 0 && currentSection > 0) {
-                // Scroll verso l'alto
                 slideToSection(currentSection - 1);
             }
         };
@@ -76,7 +80,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1>Essential Tee</h1>
+                        <h1 style={{ color: isDarkMode ? '#fff' : '#000' }}>Benvenuto nel nostro negozio!</h1>
                         <p className="subtitle">Ridefinisci il tuo stile</p>
                         <p className="price">€29.99</p>
                         <div className="cta-buttons">
@@ -89,33 +93,11 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                             <Link to="/products/tshirt" className="discover-more">
                                 Scopri di più <FaArrowRight />
                             </Link>
-                            <button className="buy-button">
+                            <button className="buy-button" style={{ color: '#fff' }}>
                                 Acquista <FaShoppingCart />
                             </button>
                         </div>
                     </motion.div>
-                    <AnimatePresence mode='wait'>
-                        <motion.div 
-                            key={`tshirt-${isDarkMode}`}
-                            className="hero-image"
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ 
-                                opacity: currentSection === 0 ? 1 : 0, 
-                                x: currentSection === 0 ? 0 : -30 
-                            }}
-                            exit={{ opacity: 0, x: 30 }}
-                            transition={{ 
-                                duration: 1.2,
-                                delay: 0.3,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <img 
-                                src={isDarkMode ? "/images/tshirt-dark.png" : "/images/tshirt-light.png"}
-                                alt="Essential Tee" 
-                            />
-                        </motion.div>
-                    </AnimatePresence>
                 </section>
 
                 {/* Hoodie Section */}
@@ -172,7 +154,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                             <Link to="/products/hoodie" className="discover-more">
                                 Scopri di più <FaArrowRight />
                             </Link>
-                            <button className="buy-button">
+                            <button className="buy-button" style={{ color: '#fff' }}>
                                 Acquista <FaShoppingCart />
                             </button>
                         </div>
@@ -229,7 +211,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                                 <Link to="/products/cap" className="discover-more">
                                     Scopri di più <FaArrowRight />
                                 </Link>
-                                <button className="buy-button">
+                                <button className="buy-button" style={{ color: '#fff' }}>
                                     Acquista <FaShoppingCart />
                                 </button>
                             </div>
@@ -256,55 +238,25 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                             ease: "easeInOut"
                         }}
                     >
-                        <motion.div 
-                            className="bio-cotton-box"
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ 
-                                scale: currentSection === 3 ? 1 : 0.9,
-                                opacity: currentSection === 3 ? 1 : 0
-                            }}
-                            transition={{
-                                duration: 0.8,
-                                delay: 0.5,
-                                ease: "easeOut"
-                            }}
-                        >
-                            <div className="philosophy-badge">BRAND</div>
-                            <h2 className="bio-cotton-title">La Nostra Filosofia</h2>
-                            <div className="philosophy-grid">
-                                <motion.div 
-                                    className="philosophy-item"
-                                    whileHover={{ y: -5 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                >
-                                    <span className="philosophy-icon">🌱</span>
-                                    <h3>Sostenibilità</h3>
-                                    <p>Ogni capo racconta una storia di rispetto per l'ambiente</p>
-                                </motion.div>
-                                <motion.div 
-                                    className="philosophy-item"
-                                    whileHover={{ y: -5 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                >
-                                    <span className="philosophy-icon">✨</span>
-                                    <h3>Design</h3>
-                                    <p>Minimalismo ed eleganza in ogni dettaglio</p>
-                                </motion.div>
-                                <motion.div 
-                                    className="philosophy-item"
-                                    whileHover={{ y: -5 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                >
-                                    <span className="philosophy-icon">♻️</span>
-                                    <h3>Circolarità</h3>
-                                    <p>Materiali riciclabili e packaging eco-friendly</p>
-                                </motion.div>
-                            </div>
-                            <div className="philosophy-quote">
-                                <p>"Creiamo moda che dura nel tempo, non nelle tendenze"</p>
-                            </div>
-                        </motion.div>
+                        {/* Qui puoi aggiungere altre informazioni se necessario */}
                     </motion.div>
+
+                    {/* Sezione Newsletter */}
+                    <div className="newsletter-box">
+                        <h2>Iscriviti alla nostra Newsletter</h2>
+                        <form onSubmit={handleSubscribe} className="newsletter-form">
+                            <input 
+                                type="email" 
+                                placeholder="Inserisci la tua email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                required 
+                            />
+                            <button type="submit">Iscriviti</button>
+                        </form>
+                        <p>Rimani aggiornato sulle ultime novità e offerte!</p>
+                    </div>
+
                     <ModernFooter isDarkMode={isDarkMode} />
                 </section>
             </motion.div>
