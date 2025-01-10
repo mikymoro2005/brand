@@ -73,15 +73,46 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                 <section 
                     ref={el => sections.current[0] = el}
                     className="hero-product tshirt-section"
+                    style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center' }}
                 >
+                    <AnimatePresence mode='wait'>
+                        <motion.div 
+                            key={`tshirt-${isDarkMode}`}
+                            className="hero-image"
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ 
+                                opacity: currentSection === 0 ? 1 : 0, 
+                                x: currentSection === 0 ? 0 : 30 
+                            }}
+                            exit={{ opacity: 0, x: -30 }}
+                            transition={{ 
+                                duration: 1.2,
+                                delay: 0.3,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <img 
+                                src={isDarkMode ? "/images/tshirt-dark.png" : "/images/tshirt-light.png"}
+                                alt="T-Shirt Oversize" 
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+
                     <motion.div 
                         className="hero-content"
                         initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        animate={{ 
+                            opacity: currentSection === 0 ? 1 : 0, 
+                            y: currentSection === 0 ? 0 : 30 
+                        }}
+                        transition={{ 
+                            duration: 1.2,
+                            delay: 0.3,
+                            ease: "easeInOut"
+                        }}
                     >
-                        <h1 style={{ color: isDarkMode ? '#fff' : '#000' }}>Benvenuto nel nostro negozio!</h1>
-                        <p className="subtitle">Ridefinisci il tuo stile </p>
+                        <h1 style={{ color: isDarkMode ? '#fff' : '#000' }}>t-shirt oversize</h1>
+                        <p className="subtitle">Ridefinisci il tuo stile</p>
                         <p className="price">€29.99</p>
                         <div className="cta-buttons">
                             <button 
@@ -242,19 +273,37 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                     </motion.div>
 
                     {/* Sezione Newsletter */}
-                    <div className="newsletter-box">
-                        <h2>Iscriviti alla nostra Newsletter</h2>
-                        <form onSubmit={handleSubscribe} className="newsletter-form">
-                            <input 
-                                type="email" 
-                                placeholder="Inserisci la tua email" 
-                                value={email} 
-                                onChange={(e) => setEmail(e.target.value)} 
-                                required 
-                            />
-                            <button type="submit">Iscriviti</button>
-                        </form>
-                        <p>Rimani aggiornato sulle ultime novità e offerte</p>
+                    <div className="newsletter-full" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%', padding: '2rem' }}>
+                        <motion.div 
+                            className="newsletter-content"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            style={{ 
+                                width: '100%', 
+                                textAlign: 'center', 
+                                background: '#333', // Cambiato in grigio scuro
+                                borderRadius: '10px', 
+                                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', 
+                                padding: '2rem', 
+                                color: '#fff', // Cambiato il colore del testo in bianco per contrasto
+                            }}
+                        >
+                            <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Iscriviti alla nostra Newsletter</h2>
+                            <form onSubmit={handleSubscribe} className="newsletter-form" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                                <input 
+                                    type="email" 
+                                    placeholder="Inserisci la tua email" 
+                                    value={email} 
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    required 
+                                    style={{ width: '80%', padding: '1rem', marginBottom: '1rem' }}
+                                />
+                                <p style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '8px' }}>Iscrivendoti riceverai un 10% di sconto!</p>
+                                <button type="submit" style={{ padding: '1rem 2rem', fontSize: '1rem' }}>Iscriviti</button>
+                            </form>
+                            
+                        </motion.div>
                     </div>
 
                     <ModernFooter isDarkMode={isDarkMode} />
