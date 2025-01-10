@@ -81,7 +81,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                         transition={{ duration: 0.8 }}
                     >
                         <h1 style={{ color: isDarkMode ? '#fff' : '#000' }}>Benvenuto nel nostro negozio!</h1>
-                        <p className="subtitle">Ridefinisci il tuo stile</p>
+                        <p className="subtitle">Ridefinisci il tuo stile </p>
                         <p className="price">€29.99</p>
                         <div className="cta-buttons">
                             <button 
@@ -254,7 +254,7 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                             />
                             <button type="submit">Iscriviti</button>
                         </form>
-                        <p>Rimani aggiornato sulle ultime novità e offerte!</p>
+                        <p>Rimani aggiornato sulle ultime novità e offerte</p>
                     </div>
 
                     <ModernFooter isDarkMode={isDarkMode} />
