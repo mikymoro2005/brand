@@ -7,6 +7,7 @@ import CapPage from './pages/products/CapPage';
 import PaymentPage from './pages/payment/PaymentPage';
 import './App.css';
 
+// Aggiunto commento per test Git
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
