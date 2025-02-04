@@ -133,17 +133,72 @@
 }
 
 @media (max-width: 768px) {
+    .payment-page {
+        padding-top: 64px;
+    }
+
     .payment-container {
         margin: 1rem;
         padding: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
     }
 
     .payment-methods {
         flex-direction: column;
     }
 
-    .form-row {
+    .order-details {
+        position: sticky;
+        top: 64px;
+        z-index: 97;
+        margin-bottom: 1rem;
+        max-height: 30vh;
+        overflow-y: auto;
+    }
+
+    .submit-payment,
+    .continue-button {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border-radius: 0;
+        z-index: 99;
+    }
+
+    .payment-form {
+        padding-bottom: 80px;
+    }
+
+    .payment-layout {
         flex-direction: column;
+    }
+
+    .form-group input {
+        height: 44px;
+        font-size: 16px;
+    }
+
+    .payment-method-btn {
+        width: 100%;
+        justify-content: center;
+        height: 44px;
+    }
+
+    .payment-container {
+        margin-bottom: 80px;
+    }
+
+    .progress-steps {
+        padding: 1rem 0;
+    }
+
+    .step-line {
+        width: 60px;
     }
 }
 

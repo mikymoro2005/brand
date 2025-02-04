@@ -92,3 +92,100 @@ html {
   margin-top: 0;
   padding-top: 88px;
 }
+
+/* Aggiungi questi stili per il mobile */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto !important; /* Forza lo scroll */
+    -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
+  }
+
+  .app-container {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Fix per il bottone acquista */
+  .buy-button,
+  .buy-now {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+  }
+
+  /* Aggiusta il padding per dispositivi mobili */
+  .apple-style-page {
+    padding-top: 64px; /* Header più piccolo su mobile */
+    padding-bottom: 80px; /* Spazio per il bottone */
+  }
+
+  /* Fix per la sezione hero su mobile */
+  .hero-section {
+    min-height: calc(100vh - 64px);
+    padding: 20px;
+  }
+
+  /* Migliora la leggibilità del testo su mobile */
+  .product-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  /* Migliora l'interazione touch */
+  * {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Previeni lo zoom su input su iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Migliora la navigazione su mobile */
+  .sections-container {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  /* Migliora la visibilità dei bottoni */
+  button {
+    min-height: 44px; /* Standard Apple per touch targets */
+    padding: 12px 20px;
+  }
+
+  /* Migliora la leggibilità */
+  p {
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* Aggiusta spaziature */
+  .hero-section {
+    gap: 2rem;
+  }
+
+  /* Fix per il footer su mobile */
+  .modern-footer {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
+  }
+}
+
+/* Fix per iOS */
+@supports (-webkit-touch-callout: none) {
+  .app-container {
+    min-height: -webkit-fill-available;
+  }
+}
