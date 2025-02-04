@@ -11,15 +11,17 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Ecommerce isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
-        <Route path="/products/tshirt" element={<TShirtPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
-        <Route path="/products/hoodie" element={<HoodiePage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
-        <Route path="/products/cap" element={<CapPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
-        <Route path="/payment" element={<PaymentPage isDarkMode={isDarkMode} />} />
-      </Routes>
-    </Router>
+    <div className="app-container">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Ecommerce isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+          <Route path="/products/tshirt" element={<TShirtPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+          <Route path="/products/hoodie" element={<HoodiePage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+          <Route path="/products/cap" element={<CapPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+          <Route path="/payment" element={<PaymentPage isDarkMode={isDarkMode} />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
