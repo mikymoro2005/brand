@@ -39,6 +39,12 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
         setEmail('');
     };
 
+    const handleModeToggle = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDarkMode(prev => !prev);
+    };
+
     useEffect(() => {
         const handleWheel = (e) => {
             e.preventDefault();
@@ -118,7 +124,11 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                         <div className="cta-buttons">
                             <button 
                                 className={`learn-more ${isDarkMode ? 'dark' : ''}`}
-                                onClick={() => setIsDarkMode(!isDarkMode)}
+                                onClick={handleModeToggle}
+                                style={{ 
+                                    zIndex: 1000,
+                                    position: 'relative'
+                                }}
                             >
                                 {isDarkMode ? 'Modalità Light' : 'Modalità Dark'} <FaArrowRight />
                             </button>
@@ -183,7 +193,11 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                         <div className="cta-buttons">
                             <button 
                                 className={`learn-more ${isDarkMode ? 'dark' : ''}`}
-                                onClick={() => setIsDarkMode(!isDarkMode)}
+                                onClick={handleModeToggle}
+                                style={{ 
+                                    zIndex: 1000,
+                                    position: 'relative'
+                                }}
                             >
                                 {isDarkMode ? 'Modalità Light' : 'Modalità Dark'} <FaArrowRight />
                             </button>
@@ -244,7 +258,11 @@ const Ecommerce = ({ isDarkMode, setIsDarkMode }) => {
                             <div className="cta-buttons">
                                 <button 
                                     className={`learn-more ${isDarkMode ? 'dark' : ''}`}
-                                    onClick={() => setIsDarkMode(!isDarkMode)}
+                                    onClick={handleModeToggle}
+                                    style={{ 
+                                        zIndex: 1000,
+                                        position: 'relative'
+                                    }}
                                 >
                                     {isDarkMode ? 'Modalità Light' : 'Modalità Dark'} <FaArrowRight />
                                 </button>

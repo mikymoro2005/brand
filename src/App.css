@@ -95,9 +95,15 @@ html {
 
 /* Aggiungi questi stili per il mobile */
 @media (max-width: 768px) {
+  html, body {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    position: relative;
+  }
+
   body {
-    overflow-y: auto !important; /* Forza lo scroll */
-    -webkit-overflow-scrolling: touch; /* Scroll fluido su iOS */
+    touch-action: pan-y;
   }
 
   .app-container {
@@ -105,18 +111,33 @@ html {
     width: 100%;
     overflow-x: hidden;
     position: relative;
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   /* Fix per il bottone acquista */
   .buy-button,
   .buy-now {
-    width: 100%;
-    margin: 10px auto;
-    padding: 15px;
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
+    width: calc(100% - 32px) !important;
+    margin: 10px 16px !important;
+    padding: 15px !important;
+    position: fixed !important;
+    bottom: env(safe-area-inset-bottom) !important;
+    left: 0 !important;
+    transform: none !important;
+    z-index: 1000 !important;
+    border-radius: 12px !important;
+  }
+
+  /* Previeni lo scroll orizzontale */
+  .sections-container {
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Fix per il contenuto che scorre sotto il bottone */
+  .apple-style-page,
+  .payment-page {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
   }
 
   /* Aggiusta il padding per dispositivi mobili */
